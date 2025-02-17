@@ -1,50 +1,132 @@
 /*Your Code Here*/
 /* PLEASE DO NOT REMOVE MY COMMENTS.  THEY HELP US HELP YOU DEBUG. */
 
-/* Step 1: Write selector/rule property to add an underline when
-links in the navigation are in the hover or focus state.*/
+/* Step 1: Add an underline when links in the navigation are in the hover or focus state */
+nav a:hover,
+nav a:focus {
+    text-decoration: underline;
+}
 
+/* Step 2a: Set the default position for the skip class element */
+.skip {
+    position: absolute;
+    top: -40px; /* Hides it initially */
+    left: 0;
+}
 
+/* Step 2b: Move the skip link into view when it is focused */
+.skip a:focus {
+    top: 0;
+    background: yellow;
+    padding: 10px;
+    z-index: 1000;
+}
 
-/* Step 2a: Write selector/rule property to position the default position for the skip class element*/
+/* Step 3: Style all elements when they are focused */
+*:focus {
+    outline: 2px solid blue;
+    outline-offset: 2px;
+}
 
+/* Step 4: Style the container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+    gap: 20px;
+    padding: 20px;
+}
 
-/* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
+/* Step 5: Add the background image to the first div in the grid and place it */
+.overview {
+    background-image: url('../images/office.jpg'); /* Update with correct image */
+    background-size: cover;
+    background-position: center;
+    grid-column: span 2; /* Spans across both columns */
+    height: 400px;
+}
 
+/* Steps 6 & 7: Place the next elements in the following grid rows */
+.about-image, .method-image, .clients-image, .contact-image {
+    width: 100%;
+    height: auto;
+}
 
-/* Step 3: Write selector/rule property to style all elements when in focus*/
+.about, .method, .clients, .contact {
+    grid-column: span 2; /* Ensures they take full width in a two-column grid */
+}
 
+/* Step 8: Style the .text-block class */
+.text-block {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 5px solid black;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
 
+/* Add a media query for responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
 
-/* Step 4: Write selector/rule property to style the container */
+    .overview {
+        grid-column: span 1;
+    }
 
+    .about, .method, .clients, .contact {
+        grid-column: span 1;
+    }
+}
 
-/* Step 5: Write selector/rule property to add the background image to the 
-first div in the grid  and place it in the grid. */
+/* Step 9: Style the nav element */
+nav {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+}
 
+nav ul {
+    list-style: none;
+    padding: 0;
+}
 
+nav li {
+    display: inline-block;
+    margin: 0 15px;
+}
 
-/* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
- four rows in the grid. */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-      /*This will be a lot of rules.... but be strategic and combine seletors*/
+/* Step 10: Update the .container class */
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
 
+/* Steps 11 & 12: Adjust grid-column for children */
+.about-image {
+    grid-column: 1 / span 1;
+}
 
- /* Step 8: Write the selector/rule property to style the .text-block class. */
+.method-image {
+    grid-column: 2 / span 1;
+}
 
+.clients-image {
+    grid-column: 1 / span 1;
+}
 
-/* Add your media query here */
+.contact-image {
+    grid-column: 2 / span 1;
+}
 
-
-  /* Step 9: Write the selector/rule property to style the nav element */
-
- 
-  /* Step 10: Write the selector/rule property to update the .container class */
-
-
-  /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
-
-
-
- /* Step 13:Write the selector/rule property to update the .text-block class */
-
+/* Step 13: Update the .text-block class */
+.text-block {
+    padding: 15px;
+    line-height: 1.5;
+    border-radius: 5px;
+}
